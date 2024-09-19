@@ -1,0 +1,22 @@
+version: "3.8" # Specify the version of Docker Compose
+
+services:
+  postgres:
+    image: postgres:15 # Use the official PostgreSQL image, version 15
+    container_name: student-db # Name the container for easy identification
+    environment:
+      POSTGRES_DB: student # Database name matching your Spring Boot config
+      POSTGRES_USER: student # Replace with your desired username
+      POSTGRES_PASSWORD: student # Replace with your desired password
+    ports:
+      - "5432:5432" # Expose port 5432 to connect from your local machine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persist data using Docker volumes
+    networks:
+      - student-network # Define a network for communication between services
+
+volumes:
+  postgres_data: # Define the volume for data persistence
+
+networks:
+  student-network: # Define a network for container communication

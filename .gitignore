@@ -1,1 +1,16 @@
+# Ignore target folder (Maven/Gradle build output)
+/target
+
+# Ignore IDE-specific files (e.g., IntelliJ IDEA, Eclipse)
+*.iml
+.idea/
+*.classpath
+*.project
+*.settings/
+
+# Ignore logs
+*.log
+
+# Ignore operating system files (Mac, Windows, Linux)
 .DS_Store
+Thumbs.db
