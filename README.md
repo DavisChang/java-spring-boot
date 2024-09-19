@@ -17,3 +17,7 @@
 [start.spring](https://start.spring.io/), Maven, Java
 
 ![spring initializer](images/spring-initializer.png)
+
+
+### Shortcuts
+Use the shortcut Ctrl + . (Windows/Linux) or Cmd + . (Mac) to bring up the Quick Fix menu.
