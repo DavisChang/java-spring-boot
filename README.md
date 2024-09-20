@@ -1,4 +1,4 @@
-## java-spring-boot, production-ready. Maven
+## Java Spring Boot: java-spring-boot, production-ready. Maven.
 
 - easy to learn
 - Configuration
@@ -198,14 +198,6 @@ java -jar target/demo-0.0.1-SNAPSHOT.jar
 java -jar target/demo-0.0.1-SNAPSHOT.jar --server.port=9090
 ```
 
-### Spring Data JPA
-
-### Security
-
-### Testing
-
-### Performance - Using Redis
-
 ### Deployment
 
 #### Create a Dockerfile and Run with Docker Compose
@@ -221,11 +213,18 @@ docker build -t my-spring-boot-app .
 docker-compose -f docker-compose-service.yml up --build
 ```
 
-### Monitoring
-
 ### Spring Cloud Config
+Spring ecosystem that provides server-side and client-side support for externalized configuration in a distributed system. It allows you to manage configuration properties across multiple environments (development, testing, production) and applications in a centralized way, improving the consistency and maintainability of configuration management.
+
+Key Features of Spring Cloud Config:
+- Centralized Configuration Management: Store configuration files in a centralized location, typically a Git repository, making it easy to manage and version configurations.
+- Dynamic Updates: Configuration changes can be dynamically updated in running services without restarting them, allowing you to adjust settings on the fly.
+- Environment Profiles: Support for multiple environments and profiles, such as dev, test, and prod, with configuration overrides.
+- Secure Configuration: Support for encrypting sensitive information, like passwords and API keys.
+
 
 ### Swagger
+Swagger: API Documentation & Design Tools for Teams
 
 1. Add Dependencies to pom.xml
 
@@ -260,3 +259,14 @@ springdoc.swagger-ui.path=/swagger-ui.html
 ```
 
 If customized with application.properties as shown above, try ```http://localhost:8080/swagger-ui.html```
+
+
+### Spring Data JPA
+
+### Security
+
+### Testing
+
+### Performance - Using Redis
+
+### Monitoring
