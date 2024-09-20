@@ -198,6 +198,16 @@ java -jar target/demo-0.0.1-SNAPSHOT.jar
 java -jar target/demo-0.0.1-SNAPSHOT.jar --server.port=9090
 ```
 
+### Spring Data JPA
+
+### Security
+
+### Testing
+
+### Performance - Using Redis
+
+### Deployment
+
 #### Create a Dockerfile and Run with Docker Compose
 
 ```bash
@@ -211,18 +221,42 @@ docker build -t my-spring-boot-app .
 docker-compose -f docker-compose-service.yml up --build
 ```
 
-### Spring Data JPA
-
-### Security
-
-### Testing
-
-### Performance - Using Redis
-
-### Deployment
-
 ### Monitoring
 
 ### Spring Cloud Config
 
 ### Swagger
+
+1. Add Dependencies to pom.xml
+
+```xml
+<dependencies>
+    <!-- Other dependencies -->
+
+    <!-- Springdoc OpenAPI for Swagger Integration -->
+    <dependency>
+        <groupId>org.springdoc</groupId>
+        <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+        <version>2.1.0</version>
+    </dependency>
+</dependencies>
+```
+
+2. Rebuild and Restart Your Application
+```
+mvn clean install
+mvn spring-boot:run
+```
+
+3. Access via the default path ```http://localhost:8080/swagger-ui/index.html```
+
+![Swagger](images/swagger.png)
+
+4. Configure Spring Boot Application Properties (Optional):
+
+```
+springdoc.api-docs.path=/v3/api-docs
+springdoc.swagger-ui.path=/swagger-ui.html
+```
+
+If customized with application.properties as shown above, try ```http://localhost:8080/swagger-ui.html```
