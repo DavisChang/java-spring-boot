@@ -50,6 +50,12 @@ When is the target Folder Generated?
 ### RESTful API
 Creating a RESTful API (API Layer), and Business Layer (Service Layer)
 
+0. Print information:
+
+```java
+System.out.println(student);
+```
+
 1. Define a Controller:
 File path ```src/main/java/com/example/demo/DemoApplication.java```
 
@@ -81,8 +87,17 @@ Define a Controller and Service. Routing visit ```src/main/java/com/example/demo
 ### Using Database (PostgreSQL)
 Use This docker-compose.yml File, Run the Docker Compose Command:
 
-```
+```bash
 docker-compose up -d
+
+# Access the PostgreSQL Container (if using Docker)
+docker exec -it student-db /bin/bash
+
+# Enter the psql Shell
+psql -U student -d student
+# List All Roles
+student=# \du
+
 ```
 
 Common psql Commands for Database Interaction

@@ -1,0 +1,3 @@
+EXPLAIN
+SELECT *
+from student;
