@@ -1,0 +1,37 @@
+services:
+  postgres:
+    image: postgres:15 # Use the official PostgreSQL image, version 15
+    container_name: student-db # Name the container for easy identification
+    environment:
+      POSTGRES_DB: student # Database name matching your Spring Boot config
+      POSTGRES_USER: student # Username for the database
+      POSTGRES_PASSWORD: student # Password for the database
+    ports:
+      - "5432:5432" # Expose port 5432 to connect from your local machine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persist data using Docker volumes
+    networks:
+      - student-network # Define a network for communication between services
+
+  springboot-app:
+    build:
+      context: . # Build from the current directory using the Dockerfile
+      dockerfile: Dockerfile # Specify the Dockerfile if not named `Dockerfile`
+    container_name: springboot-app # Name the Spring Boot container
+    ports:
+      - "8080:8080" # Expose port 8080 for the Spring Boot application
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/student # Connection string to PostgreSQL
+      SPRING_DATASOURCE_USERNAME: student # Match with POSTGRES_USER
+      SPRING_DATASOURCE_PASSWORD: student # Match with POSTGRES_PASSWORD
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop # Config for Hibernate
+    depends_on:
+      - postgres # Ensure Spring Boot waits for PostgreSQL to be ready
+    networks:
+      - student-network # Connect to the same network as the database
+
+volumes:
+  postgres_data: # Define the volume for data persistence
+
+networks:
+  student-network: # Define a network for container communication

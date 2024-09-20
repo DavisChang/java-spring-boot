@@ -166,7 +166,52 @@ public class StudentService {
 }
 ```
 
-#### Spring Data JPA
+### Package up application into Jar
+Run Maven Commands:
+
+``` bash
+# To run the Maven clean command (which deletes the target directory), type:
+mvn clean
+# To run the Maven install command (which compiles your code, runs tests, and packages it), 
+mvn install
+# To combine both commands, you can run:
+mvn clean install
+
+# This command will compile the code, run tests, and package the application into the target folder
+mvn clean package
+```
+
+After running install, you can find ```target/demo-0.0.1-SNAPSHOT.jar```
+
+```bash
+# check java version
+java -version
+
+# openjdk version "22.0.2" 2024-07-16
+# OpenJDK Runtime Environment Homebrew (build 22.0.2)
+# OpenJDK 64-Bit Server VM Homebrew (build 22.0.2, mixed mode, sharing)
+
+# run jar
+java -jar target/demo-0.0.1-SNAPSHOT.jar
+
+# run jar different port
+java -jar target/demo-0.0.1-SNAPSHOT.jar --server.port=9090
+```
+
+#### Create a Dockerfile and Run with Docker Compose
+
+```bash
+# Step 1: Package the application with Maven
+mvn clean package
+
+# Step 2: Build the Docker image
+docker build -t my-spring-boot-app .
+
+# Step 3: Run the Application with Docker Compose
+docker-compose -f docker-compose-service.yml up --build
+```
+
+### Spring Data JPA
 
 ### Security
 
