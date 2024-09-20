@@ -7,8 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
-  // You can define custom query methods here if needed
-
   @Query("SELECT s FROM Student s WHERE s.email = ?1")
   Optional<Student> findStudentByEmail(String string);
 }
