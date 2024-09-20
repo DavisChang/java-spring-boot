@@ -260,10 +260,18 @@ springdoc.swagger-ui.path=/swagger-ui.html
 
 If customized with application.properties as shown above, try ```http://localhost:8080/swagger-ui.html```
 
+### Security
+1. Dependency Management and Vulnerabilities
+- Use tools like OWASP Dependency-Check or Snyk to scan dependencies for known vulnerabilities. Regularly update your dependencies to the latest secure versions.
+- Maven Repositories and Source Authenticity. Only use trusted repositories (e.g., Maven Central) and validate the sources of external dependencies. Avoid adding untrusted repositories without verifying their credibility.
+- Checksum Validation
+
+2. Secure Your settings.xml
+Credentials Management: Maven's settings.xml file often stores credentials for private repositories or deployment servers.
+- Do not hard-code sensitive credentials directly in settings.xml. Instead, use environment variables, encrypted credentials, or secure credential storage.
+- Use Maven’s built-in encryption feature for passwords (mvn --encrypt-password).
 
 ### Spring Data JPA
-
-### Security
 
 ### Testing
 
